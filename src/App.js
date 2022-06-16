@@ -48,14 +48,32 @@ function App() {
     /* push */
     setCartArticles([...cartArticles, article]);
   };
-  const handleDelete =
-  console.log(cartArticles);
+  const handleDelete = (even, deleArticle) => {
+    even.preventDefault();
+    const newArticles = [...cartArticles].filter(
+      (article) => article.name !== deleArticle.name
+    );
+    setCartArticles(newArticles);
+  };
+  
+
   return (
     <div className="App">
-      <ArticleGroup articles={itemList} sectionName="Article" handleClick={handleClick}/>
-      <ArticleGroup articles={cartArticles} sectionName="Panier" isCart />
-    
-      </div>
+      <ArticleGroup
+        articles={itemList}
+        sectionName="Article"
+        handleClick={handleClick}
+      />
+      {cartArticles.length ? (
+        <ArticleGroup
+          articles={cartArticles}
+          sectionName="Panier"
+          isCart
+          handleClick={handleDelete}
+        />
+      ) : null}
+      {/* {cartArticles.length === 0 ? null : <ArticleGroup articles={cartArticles} sectionName="Panier" isCart />} */}
+    </div>
   );
 }
 

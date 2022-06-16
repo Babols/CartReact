@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const Article = ({article, isCart, handleClick}) => {
   const {name, img, cat, price} = article
   return (

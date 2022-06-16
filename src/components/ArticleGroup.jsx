@@ -11,6 +11,7 @@ const ArticleGroup = ({ articles, sectionName, isCart, handleClick }) => {
           article={article}
           isCart={isCart}
           handleClick={handleClick}
+          handleDelete
         />
       ))}
     </section>
